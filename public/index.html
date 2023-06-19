@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body class="text-center background">
  
     <div class="container d-flex align-items-center flex-column justify-content-center m-auto flex-wrap  ">
 
         <div class="row d-flex align-items-center justify-content-center  text-center  m-2 flex-wrap">
 
-            <div class="col shadow-lg rounded p-2 pb-4">
+            <div class="col shadow-lg rounded p-2 pb-4" id="displayQuizBox">
                 <div class="row d-flex align-items-center justify-content-center flex-column flex-wrap">
                     <div class="col">
 
@@ -128,11 +129,13 @@
                                         <div class="row  rounded d-flex align-items-center justify-content-center">
                                         </div>
                                         <div class="col ">
-                                            <div class="row d-flex align-items-center justify-content-center gap-2  ">
-                                                <button
-                                                    class="col box_quiz sticky-bottom  rounded  bg-black pnBtn" onclick="prevQue()">Previous</button>
-                                                <button
-                                                    class="col box_quiz sticky-bottom  rounded  bg-black pnBtn" onclick="nextQue()">Next</button>
+                                            <div class="row d-flex align-items-center justify-content-center gap-2  flex-column">
+                                                <!-- <button
+                                                    class="col box_quiz sticky-bottom  rounded  bg-black pnBtn" onclick="prevQue()">Previous</button> -->
+                                                    <button
+                                                    class="col box_quiz sticky-bottom  rounded  bg-black pnBtn" onclick="nextQue()">Next</button> 
+                                                    <button
+                                                        class="col box_quiz sticky-bottom  rounded  bg-black pnBtn" onclick="submitQuiz()">submit Quiz</button>
                                             </div>
                                         </div>
                                     </div>

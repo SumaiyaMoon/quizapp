@@ -50,7 +50,8 @@ p{
 }
 .options{
     font-size: 20px !important;
-   padding: 10px !important;
+   /* padding: 0px !important;
+   padding-top: 0px !important; */
  
   background-color: rgba(0, 0, 0, 0.231);
   color:black;
@@ -58,9 +59,9 @@ p{
  text-shadow: -1px 0 #4fd5ba, 0 1px #4fd5ba, 1px 0 #4fd5ba, 0 -1px #4fd5ba;
 
 }
-.optDiv{
+/* .optDiv{
     width: 49% !important;
-}
+} */
 .question{
     padding: 10px !important;
     background-color: rgba(0, 0, 0, 0.231);

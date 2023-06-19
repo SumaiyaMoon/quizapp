@@ -1,4 +1,30 @@
 
+//Submit Quiz
+var displayQuizBox = document.getElementById("displayQuizBox");
+function submitQuiz(){
+  displayQuizBox.innerHTML=` <div class="col m-5  rounded p-5 ">
+  <div class="row d-flex align-items-center justify-content-center flex-column flex-wrap">
+  <div class="col">
+
+      <div class="row mx-3 rounded d-flex align-items-center justify-content-center flex-column">
+          <div class="col heading rounded p-5 question">
+  <h1 >Thankyou For Attempting Quiz</h1>
+<div >Click below to view marks</div>
+<button class="col box_quiz sticky-bottom  rounded  bg-black pnBtn p-2 m-3" onClick="viewMarks()" >View Marks</button>
+  </div></div></div></div></div>`
+}
+function viewMarks(){
+  displayQuizBox.innerHTML=` <div class="col m-5  rounded p-5 ">
+  <div class="row d-flex align-items-center justify-content-center flex-column flex-wrap">
+  <div class="col">
+
+      <div class="row mx-3 rounded d-flex align-items-center justify-content-center flex-column">
+          <div class="col heading rounded p-5 question">
+  <h1 >You Marks are: <br /> ${marks} out of ${quizQuestions.length}</h1>
+
+  </div></div></div></div></div>`
+}
+
 //TIMER
 var startTimerButton = document.getElementById("startTimerButton");
 var popup = document.getElementById("popup");
@@ -7,6 +33,8 @@ var closeButton = document.querySelector(".close");
 var displayThr = document.getElementById("displayThr");
 var displayTmin = document.getElementById("displayTmin");
 var displayTsec = document.getElementById("displayTsec");
+// var timerStarted=false;
+
 
 var hoursT = 0;
 var minutesT = 30;
@@ -24,7 +52,9 @@ closeButton.addEventListener("click", function() {
 });
 
 function startTimer() {
+
   intervalT = setInterval(updateTimer, 1000);
+  // timerStarted = true;
 }
 
 function updateTimer() {
@@ -170,9 +200,22 @@ var quizQuestions = [
   var totalQuestions = document.getElementById("totalQuestions");
   var answerQuestion = document.getElementById("answerQuestion");
   var obtainedMarksElement = document.getElementById("obtainedMarks");
-  var totalMarksElement = document.getElementById("totalMarks")
+  var totalMarksElement = document.getElementById("totalMarks");
+  var optBtn = document.getElementById("optBtn")
   var indexVal = 0;
   var marks=0;
+
+
+// function startQuiz(){
+//   if(timerStarted){
+//     renderQue();
+//   }
+// else{
+//   alert("Please Start Timer to  start Quiz");
+// }
+// }
+// startQuiz();
+
 
  function renderQue(){
     var obj = quizQuestions[indexVal];
@@ -182,16 +225,15 @@ var quizQuestions = [
     currentQuestion.innerHTML = indexVal + 1;
     answerQuestion.innerHTML = "";
     
-    
     for (var i=0; i<obj.options.length; i++){
-        answerQuestion.innerHTML += ` <div class="col-md-4 optDiv">
-        <button onclick="checkAnswer('${obj.answer}','${obj.options[i]}')" class="heading w-100 rounded options">${obj.options[i]}</button>
+        answerQuestion.innerHTML += ` <div class="col-md-4 optDiv ">
+        <button onclick="checkAnswer('${obj.answer}','${obj.options[i]}'); nextQue();" class="d-flex flex-wrap justify-content-center align-items-center heading w-100 rounded options" id="optBtn">${obj.options[i]}</button>
   </div>`
 }
 
+  }
 
 
-}
 
 function nextQue(){
     if(indexVal+1 < quizQuestions.length){
@@ -200,13 +242,13 @@ function nextQue(){
     }
     
 }
-function prevQue(){
-    if(indexVal+1 > 0){
-        indexVal--;
-        renderQue();
-        }
+// function prevQue(){
+//     if(indexVal+1 > 0){
+//         indexVal--;
+//         renderQue();
+//         }
         
-}
+// }
 
 var answeredQuestions = [];
 
@@ -221,9 +263,8 @@ function checkAnswer(a,b){
             // obtainedMarksElement.innerHTML = marks;
           // }
             obtainedMarksElement.innerHTML = marks;
-          // if (indexVal+1 == quizQuestions.length) {
-          //   alert("Total Marks: " + marks);
-          // }
+            if (indexVal+1 == quizQuestions.length) {
+alert("Please Submit Your Quiz by clicking on the button below")          }
       }
 }
 
