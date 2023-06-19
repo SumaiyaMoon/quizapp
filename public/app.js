@@ -20,7 +20,7 @@ function viewMarks(){
 
       <div class="row mx-3 rounded d-flex align-items-center justify-content-center flex-column">
           <div class="col heading rounded p-5 question">
-  <h1 >You Marks are: <br /> ${marks} out of ${quizQuestions.length}</h1>
+  <h1 >You Got: <br /> ${marks} out of ${quizQuestions.length}</h1>
 
   </div></div></div></div></div>`
 }
